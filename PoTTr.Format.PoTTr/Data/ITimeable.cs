@@ -2,11 +2,14 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
-namespace PoTTr.Format.PoTTr
+using System;
+
+namespace PoTTr.Format.PoTTr.Data
 {
-    public class Agent
+    public interface ITimeable
     {
-        public string? AgentId { get; set; }
-        public Name Name { get; set; }
+        public TimeSpan? Begin { get; set; }
+        public TimeSpan? End { get; set; }
+        public TimeSpan? Duration => End - Begin;
     }
 }

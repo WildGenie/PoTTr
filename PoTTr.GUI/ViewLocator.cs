@@ -12,19 +12,12 @@ namespace PoTTr.GUI
     {
         public bool SupportsRecycling => false;
 
-        public IControl Build(object data)
+        public IControl? Build(object data)
         {
-            var name = data.GetType().FullName.Replace("ViewModel", "View");
-            var type = Type.GetType(name);
+            string name = data?.GetType()?.FullName?.Replace("ViewModel", "View") ?? string.Empty;
+            Type? type = Type.GetType(name);
 
-            if (type != null)
-            {
-                return (Control)Activator.CreateInstance(type);
-            }
-            else
-            {
-                return new TextBlock { Text = "Not Found: " + name };
-            }
+            return type != null ? Activator.CreateInstance(type!) as Control : new TextBlock { Text = "Not Found: " + name };
         }
 
         public bool Match(object data)

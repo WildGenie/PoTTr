@@ -19,6 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PoTTr.Format.TTML\PoTTr.Format.TTML.csproj" />
+    <ProjectReference Include="..\PoTTr.Format.PoTTr\PoTTr.Format.PoTTr.csproj" />
   </ItemGroup>
 </Project>
