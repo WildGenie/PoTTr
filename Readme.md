@@ -1,12 +1,10 @@
 
 # Podcast Timeline Transcriber
-
 This repository contains the PoTTr Podcast Timeline Transcriber software.
 
 It is currently pre-alpha stage and non-functional.
 
 ## Licensing
-
 This tool is licensed under the MPL 2.0 License, available at https://mozilla.org/MPL/2.0/ or in the [License.md](License.md) file
 
 ## Roadmap
