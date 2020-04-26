@@ -7,6 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PoTTr.Backend.Google", "PoT
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FC23AEBC-0993-4438-9F27-73D4367ED412}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
 		License.md = License.md
 	EndProjectSection
 EndProject
@@ -14,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PoTTr.GUI", "PoTTr.GUI\PoTT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoTTr.Format.PoTTr", "PoTTr.Format.PoTTr\PoTTr.Format.PoTTr.csproj", "{EA904CA7-2E92-47DE-B3A0-94657EAAC693}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoTTr.Tests", "PoTTR.Tests\PoTTr.Tests.csproj", "{B2AB484C-73A0-43BC-8C4E-0FCC95C08953}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PoTTr.Tests", "PoTTR.Tests\PoTTr.Tests.csproj", "{B2AB484C-73A0-43BC-8C4E-0FCC95C08953}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
