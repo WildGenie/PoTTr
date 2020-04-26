@@ -15,4 +15,3 @@ The following are the basic features desired in the program
   * Use of a simplified [TTML](https://www.w3.org/TR/2018/REC-ttml1-20181108/) syntax as the main file format.
 	  * TTML has support for advanced formatting and multiple speakers
 	  * Supporting other subtitle formats for export
-  * [Avalonia](http://avaloniaui.net/) as the GUI framework for cross-platform compatibility
