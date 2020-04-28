@@ -134,6 +134,38 @@ namespace PoTTr.Format.PoTTr.Migrations
                     b.ToTable("Names");
                 });
 
+            modelBuilder.Entity("PoTTr.Format.PoTTr.Data.ProjectData", b =>
+                {
+                    b.Property<string>("DataKey")
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("DataValue")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("DataKey");
+
+                    b.ToTable("ProjectData");
+
+                    b.HasData(
+                        new
+                        {
+                            DataKey = "ProjectName",
+                            DataValue = ""
+                        },
+                        new
+                        {
+                            DataKey = "ProjectDate",
+                            DataValue = ""
+                        },
+                        new
+                        {
+                            DataKey = "ProjectAuthor",
+                            DataValue = ""
+                        });
+                });
+
             modelBuilder.Entity("PoTTr.Format.PoTTr.Data.Agent", b =>
                 {
                     b.HasOne("PoTTr.Format.PoTTr.Data.Metadata", "Metadata")

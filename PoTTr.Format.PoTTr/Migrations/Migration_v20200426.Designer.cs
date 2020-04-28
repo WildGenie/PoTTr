@@ -9,8 +9,8 @@ using PoTTr.Format.PoTTr;
 namespace PoTTr.Format.PoTTr.Migrations
 {
     [DbContext(typeof(PoTTrContext))]
-    [Migration("20200426213727_Initial")]
-    partial class Initial
+    [Migration("20200427000245_v20200426")]
+    partial class Migration_v20200426
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -134,6 +134,38 @@ namespace PoTTr.Format.PoTTr.Migrations
                     b.HasIndex("AgentId");
 
                     b.ToTable("Names");
+                });
+
+            modelBuilder.Entity("PoTTr.Format.PoTTr.Data.ProjectData", b =>
+                {
+                    b.Property<string>("DataKey")
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("DataValue")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("DataKey");
+
+                    b.ToTable("ProjectData");
+
+                    b.HasData(
+                        new
+                        {
+                            DataKey = "ProjectName",
+                            DataValue = ""
+                        },
+                        new
+                        {
+                            DataKey = "ProjectDate",
+                            DataValue = ""
+                        },
+                        new
+                        {
+                            DataKey = "ProjectAuthor",
+                            DataValue = ""
+                        });
                 });
 
             modelBuilder.Entity("PoTTr.Format.PoTTr.Data.Agent", b =>

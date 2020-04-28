@@ -23,6 +23,11 @@ namespace PoTTr.Format.PoTTr.Data
 
         public int MetadataId { get; set; } 
         public Metadata Metadata { get; set; } = null!;
+
+        public string? PickName
+        {
+            get => Names.First()?.Value;
+        }
     }
 
     public enum AgentType { Person, Character, Group, Organization, Other }

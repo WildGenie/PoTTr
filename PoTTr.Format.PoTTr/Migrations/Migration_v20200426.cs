@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PoTTr.Format.PoTTr.Migrations
 {
-    public partial class Initial : Migration
+    public partial class Migration_v20200426 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -20,6 +20,18 @@ namespace PoTTr.Format.PoTTr.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Metadata", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ProjectData",
+                columns: table => new
+                {
+                    DataKey = table.Column<string>(maxLength: 50, nullable: false),
+                    DataValue = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProjectData", x => x.DataKey);
                 });
 
             migrationBuilder.CreateTable(
@@ -107,6 +119,21 @@ namespace PoTTr.Format.PoTTr.Migrations
                 values: new object?[] { 1, null, null, null });
 
             migrationBuilder.InsertData(
+                table: "ProjectData",
+                columns: new[] { "DataKey", "DataValue" },
+                values: new object[] { "ProjectName", "" });
+
+            migrationBuilder.InsertData(
+                table: "ProjectData",
+                columns: new[] { "DataKey", "DataValue" },
+                values: new object[] { "ProjectDate", "" });
+
+            migrationBuilder.InsertData(
+                table: "ProjectData",
+                columns: new[] { "DataKey", "DataValue" },
+                values: new object[] { "ProjectAuthor", "" });
+
+            migrationBuilder.InsertData(
                 table: "ContentNode",
                 columns: new[] { "Id", "AgentId", "Begin", "End", "MetadataId", "NodeType", "Order", "ParentId", "Value" },
                 values: new object?[] { 1, null, null, null, 1, 5, 0u, null, null });
@@ -144,6 +171,9 @@ namespace PoTTr.Format.PoTTr.Migrations
 
             migrationBuilder.DropTable(
                 name: "Names");
+
+            migrationBuilder.DropTable(
+                name: "ProjectData");
 
             migrationBuilder.DropTable(
                 name: "Agents");
