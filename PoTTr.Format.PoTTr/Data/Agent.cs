@@ -6,29 +6,26 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Runtime.Serialization;
+using ProtoBuf;
 
 namespace PoTTr.Format.PoTTr.Data
 {
-    public class Agent : IDataTable
+    [ProtoContract]
+    [DataContract]
+    public class Agent
     {
-        public AgentType AgentType { get; set; }
+        [DataMember(Order = 1, IsRequired = true)]
+        public AgentType Type { get; set; }
+
+        [DataMember(Order = 2, IsRequired = true)]
         public List<Name> Names { get; } = new List<Name>();
 
-        public int Id { get; set; }
+        [DataMember(Order = 3, IsRequired = false)]
+        [ProtoMember(3, AsReference = true, IsRequired = false)]
+        public List<Agent> Actor { get; } = new List<Agent>();
 
-        public List<ContentNode> ContentNodes { get; } = new List<ContentNode>();
-        
-        public IEnumerable<Agent> Actors { get => throw new NotImplementedException(); }
-        public IEnumerable<Agent> Characters { get => throw new NotImplementedException(); }
-
-        public int MetadataId { get; set; } 
-        public Metadata Metadata { get; set; } = null!;
-
-        public string? PickName
-        {
-            get => Names.First()?.Value;
-        }
     }
 
-    public enum AgentType { Person, Character, Group, Organization, Other }
+    public enum AgentType { Person = 1, Character, Group, Organization, Other }
 }

@@ -4,12 +4,20 @@
 
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace PoTTr.Format.PoTTr.Data
 {
-    public class TranscriptProject : IMetadata
+    [DataContract]
+    public class TranscriptProject
     {
+        [DataMember(Order = 2)]
         public Metadata? Metadata { get; set; }
-        public IEnumerable<ContentNode> RootNodes { get => throw new NotImplementedException(); }
+
+        [DataMember(Order = 6)]
+        public Dictionary<string, string> ProjectData { get; } = new Dictionary<string,string>();
+
+        [DataMember(Order = 1)]
+        public List<ContentNode> Nodes { get; } = new List<ContentNode>();
     }
 }

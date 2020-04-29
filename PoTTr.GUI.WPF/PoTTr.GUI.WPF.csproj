@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="protobuf-net" Version="2.4.6" />
     <PackageReference Include="ReactiveUI.Events.WPF" Version="11.3.8" />
     <PackageReference Include="ReactiveUI.WPF" Version="11.3.8" />
   </ItemGroup>
