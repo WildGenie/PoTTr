@@ -1,4 +1,6 @@
 ﻿using System;
+using PoTTr.Backend.Interfaces;
+using System.Text.Json.Serialization;
 
 namespace PoTTr.Console.Backend
 {
@@ -6,7 +8,7 @@ namespace PoTTr.Console.Backend
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            System.Console.WriteLine("Hello World!");
         }
     }
 }
