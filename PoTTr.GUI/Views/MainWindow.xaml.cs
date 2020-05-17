@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -11,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PoTTr.GUI.WPF.Contols
+namespace PoTTr.GUI.Views
 {
     /// <summary>
-    /// Interaction logic for AgentRow.xaml
+    /// Interaction logic for ViewA.xaml
     /// </summary>
-    public partial class AgentRow : UserControl
+    public partial class MainWindow : Window
     {
-        public AgentRow()
+        public MainWindow()
         {
             InitializeComponent();
         }

@@ -13,7 +13,22 @@ namespace PoTTr.Format.PoTTr.Data
     [DataContract]
     public class TranscriptProject : PoTTrSerializable<TranscriptProject>
     {
-        public static TranscriptProject DefaultProject { get => new TranscriptProject(); }
+        public static TranscriptProject DefaultProject
+        {
+            get
+            {
+                var p = new TranscriptProject
+                {
+                    Metadata = new Metadata()
+                };
+                p.Metadata.Agents.Add(new Agent() { Type = AgentType.Person });
+                p.Metadata.Agents.Add(new Agent() { Type = AgentType.Person });
+                p.Metadata.Agents[0].Names.Add(new Name { Type = NameType.Full, Value = "Person1" });
+                p.Metadata.Agents[1].Names.Add(new Name { Type = NameType.Full, Value = "Person2" });
+                return p;
+            }
+        }
+
         [DataMember(Order = 2, EmitDefaultValue = false)]
         public Metadata? Metadata { get; set; }
 

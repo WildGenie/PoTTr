@@ -1,13 +1,16 @@
-﻿<views:MainWindowViewBase
-        x:Class="PoTTr.GUI.WPF.MainWindow"
-        xmlns:rxui="http://reactiveui.net"
+﻿<Window
+    x:Class="PoTTr.GUI.WPF.MainWindow"
     xmlns:views="clr-namespace:PoTTr.GUI.WPF"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:clr="clr-namespace:System;assembly=System.Runtime"
+     xmlns:vm="clr-namespace:PoTTr.GUI.WPF.ViewModels"
+    xmlns:uc="clr-namespace:PoTTr.GUI.WPF.Controls"
+    mc:Ignorable="d" Title="PoTTr" Height="450" Width="800">
+    <Window.DataContext>
+        <vm:MainWindowViewModel />
+    </Window.DataContext>
     <Window.InputBindings>
         <KeyBinding Modifiers="Control"
                     Key="N"
@@ -19,8 +22,10 @@
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_File">
-                <MenuItem Header="_New" Command="{Binding NewProject}"/>
-                <MenuItem Header="_Open" x:Name="OpenButton" />
+                <MenuItem Header="_New" Name="MenuNew" Command="{Binding NewProject}" />
+                <MenuItem Header="_Open" Name="MenuOpen" Command="{Binding OpenProject}" />
+                <MenuItem Header="_Save" Name="MenuSave" Command="{Binding SaveProject}" IsEnabled="{Binding ContextLoaded}" />
+                <MenuItem Header="Sa_ve As" Name="MenuSaveAs" Command="{Binding SaveProjectAs}" />
                 <Separator />
 
             </MenuItem>
@@ -38,18 +43,18 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <ItemsControl x:Name="AgentStack" Grid.Column="0">
+            <ItemsControl x:Name="AgentStack" Grid.Column="0" ItemsSource="{Binding Agents}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <StackPanel Orientation="Horizontal"/>
+                        <StackPanel Orientation="Vertical"/>
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Label Content="{Binding}"/>
+                        <uc:AgentRow DataContext="{Binding .}" />
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </Grid>
     </DockPanel>
-</views:MainWindowViewBase>
+</Window>
