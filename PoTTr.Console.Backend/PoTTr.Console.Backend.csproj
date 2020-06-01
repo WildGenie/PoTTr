@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="System.CommandLine" Version="2.0.0-beta1.20253.1" />
     <PackageReference Include="System.Text.Json" Version="4.7.2" />
+    <PackageReference Include="Xabe.FFMpeg" Version="4.0.0" />
   </ItemGroup>
   <PropertyGroup>
     <OutputType>Exe</OutputType>
