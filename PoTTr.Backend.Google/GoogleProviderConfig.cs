@@ -1,9 +1,8 @@
 using Google.Cloud.Speech.V1;
-using PoTTr.Backend.Interfaces;
 
 namespace PoTTr.Backend.Google
 {
-    public class GoogleProviderConfig : IBackendConfig
+    public class GoogleProviderConfig
     {
         public string? JsonCredentialPath { get; set; }
         public RecognitionConfig? RecognitionConfig { get; set; }
