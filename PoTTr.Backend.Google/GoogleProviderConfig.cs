@@ -1,20 +1,30 @@
-using Google.Cloud.Speech.V1;
+using System.CommandLine;
+using System.IO;
+using Google.Cloud.Speech.V1P1Beta1;
 
 namespace PoTTr.Backend.Google
 {
-    public class GoogleProviderConfig
+    public class GoogleProviderConfig : IProviderConfig
     {
-        public string? JsonCredentialPath { get; set; }
-        public RecognitionConfig? RecognitionConfig { get; set; }
-        public static GoogleProviderConfig Default
-        {
-            get => new GoogleProviderConfig
+        public FileInfo? JsonCredentialPath { get; set; } 
+        public FileInfo? RecognitionConfigPath { get; set; }
+        public FileInfo? FFmpegExePath {get;set;}
+        
+        public static Command Command => new Command("google")
             {
-                RecognitionConfig = new RecognitionConfig
-                {
-                    SpeechContexts = { new SpeechContext { Phrases = { "A", "B" } } }
-                }
-            };
-        }
+                new Option<FileInfo>(
+                    "--json-credential-path",
+                    "Path to the Google API JSON Credential File"){
+                        Required = true
+                    },
+                new Option<FileInfo>(
+                    "--recongnition-config-path",
+                    "Path to a JSON file with the Recognition Configuration"),
+                new Option<FileInfo>(
+                    "--ffmpeg-exe-path",
+                    "Path to the ffmpeg executable. (Required if ffmpeg is not one the path)"),
+                };
+
+        public FileInfo? AudioPath { get ; set; }
     }
 }

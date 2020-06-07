@@ -9,11 +9,11 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/PoTTR.Tests/bin/Debug/netcoreapp3.1/PoTTr.Tests.dll",
-            "args": [],
-            "cwd": "${workspaceFolder}/PoTTR.Tests",
-            "console": "internalConsole",
-            "stopAtEntry": false
+            "program": "${workspaceFolder}/PoTTr.Backend.Google/bin/Debug/netcoreapp3.1/PoTTr.Backend.Google.exe",
+            "args": ["--audio-file=Episodes/2019-10-30--t01-17-20am--collin-jurenka.mp3","google","--json-credential-path", "Episodes/2019-10-30--t01-17-20am--collin-jurenka.mp3"],
+            "cwd": "${workspaceFolder}",
+            "stopAtEntry": false,
+            "console": "internalConsole"
         },
         {
             "name": ".NET Core Attach",
